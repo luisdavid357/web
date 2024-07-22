@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar Sesión</title>
+<style>
+  body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .login-form {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: center;
+  }
+
+  .login-form h2 {
+    margin-bottom: 20px;
+  }
+
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+  }
+
+  .login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .error-message {
+    color: #ff5252;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-form">
+  <h2>Iniciar Sesión</h2>
+  <form id="loginForm" onsubmit="return validarFormulario()">
+    <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+    <br>
+    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+    <br>
+    <input type="submit" value="Iniciar Sesión">
+  </form>
+  <div id="error-msg" class="error-message" style="display: none;">Usuario o contraseña incorrectos.</div>
+</div>
+
+<script>
+  function validarFormulario() {
+    var usuario = document.getElementById('usuario').value;
+    var contrasena = document.getElementById('contrasena').value;
+
+    // Aquí puedes agregar la lógica de validación personalizada, si es necesario
+
+    // Ejemplo básico: validar si el usuario y contraseña coinciden con los valores esperados
+    if (usuario === 'Paredes3Agal' && contrasena === '1003393002') {
+      // Redireccionar a sesion.html
+      window.location.href = 'sesion.html';
+      return false; // Evitar que se envíe el formulario
+    } else {
+      // Mostrar mensaje de error
+      document.getElementById('error-msg').style.display = 'block';
+      return false; // Evitar que se envíe el formulario
+    }
+  }
+</script>
+
+</body>
+</html>

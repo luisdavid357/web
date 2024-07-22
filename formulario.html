@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedTokens</title>
+    <link rel="stylesheet" href="Estilo/stylesformulario.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        h1.title {
+            text-align: center;
+            font-size: 24px;
+        }
+        p.subtitle {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            display: inline;
+            width: auto;
+            margin-top: 0;
+        }
+        .terminos {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .contact-info {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        .secure-transactions {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+    <script>
+        // Función para manejar el tiempo de espera entre envíos de formulario
+        let canSubmit = true;
+        
+        function handleSubmitForm() {
+            if (!canSubmit) {
+                alert("Por favor espera 30 minutos para enviar otro formulario.");
+                return false;
+            }
+            
+            // Aquí iría tu código para enviar el formulario (si deseas añadirlo)
+            
+            // Desactivar el envío de formularios por 30 minutos
+            canSubmit = false;
+            setTimeout(function() {
+                canSubmit = true;
+            }, 30 * 60 * 1000); // 30 minutos en milisegundos
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">SpeedTokens</h1>
+        <p class="subtitle">Optimizando tus pagos con rapidez y confianza</p>
+        
+        <form action="formularios/formulario.php" method="POST" enctype="multipart/form-data" onsubmit="return handleSubmitForm();">
+            <label for="nombre_completo">Nombre completo:</label>
+            <input type="text" id="nombre_completo" name="nombre_completo" required>
+            
+            <label for="cedula">Cédula de ciudadanía:</label>
+            <input type="text" id="cedula" name="cedula" required>
+            
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+            
+            <label for="nombre_usuario">Nombre de usuario:</label>
+            <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+            
+            <label for="tokens">Tokens a vender:</label>
+            <input type="number" id="tokens" name="tokens" required>
+            
+            <label for="numero_cuenta">Número de cuenta Bancolombia:</label>
+            <input type="text" id="numero_cuenta" name="numero_cuenta" required>
+            
+            <label for="tipo_cuenta">Tipo de cuenta:</label>
+            <select id="tipo_cuenta" name="tipo_cuenta" required>
+                <option value="corriente">Corriente</option>
+                <option value="ahorros">Ahorros</option>
+            </select>
+            
+            <label for="validacion_documento">Validación de documento (formato JPG):</label>
+            <input type="file" id="validacion_documento" name="validacion_documento" accept="image/jpeg" required>
+            
+            <div class="terminos">
+                <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
+                <label for="terminos_condiciones">Autorizo el uso de mis datos de acuerdo a la <a href="terminos y condiciones.html" target="_blank">declaración de privacidad</a> y acepto los <a href="terminos y condiciones.html" target="_blank">términos y condiciones</a> y la autorización de tratamiento de datos.</label>
+            </div>
+            
+            <button type="submit" name="submit_form">Confirmar venta de tokens</button>
+        </form>
+    </div>
+    
+    <div class="secure-transactions">
+        <p><strong>Transacciones Seguras:</strong><br>
+        Este sitio web está protegido con un certificado de servidor web. Las transacciones del sitio están protegidas con cifrado.</p>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2024 SpeedTokens. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html>
